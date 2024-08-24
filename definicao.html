@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Definição</title>
+    <link rel="icon" type="image/x-icon" href="img/dicionario.png">
+    <link rel="stylesheet" href="css/definicao.css">
+</head>
+<body>
+    <div id="header" onclick="voltarPaginaInicial()">
+        <h1>Dicionário <span id="logo">Sturmmann</span></h1>
+    </div>
+    <div class="search-container">
+        <form id="search-form">
+            <select name="idioma" id="idioma">
+                <option class="opcao" value="pt-br" data-pt-br="Português" data-en="Portuguese" data-es="Español" data-fr="Français" data-de="Deutsch">Português</option>
+                <option class="opcao" value="en" data-pt-br="Inglês" data-en="English" data-es="Español" data-fr="Français" data-de="Deutsch">Inglês</option>
+                <option class="opcao" value="es" data-pt-br="Espanhol" data-en="Spanish" data-es="Español" data-fr="Français" data-de="Deutsch">Espanhol</option>
+                <option class="opcao" value="fr" data-pt-br="Francês" data-en="French" data-es="Español" data-fr="Français" data-de="Deutsch">Francês</option>
+                <option class="opcao" value="de" data-pt-br="Alemão" data-en="German" data-es="Español" data-fr="Français" data-de="Deutsch">Alemão</option>
+            </select>
+        </form>
+    </div>
+    
+    <h2 id="palavraId"></h2>
+
+    <div class="content-section" id="definicao-section">
+        <h3 id="definicaoId">Definição</h3>
+        <p id="definicao">Aqui vai a definição da palavra.</p>
+    </div>
+
+    <div class="content-section" id="sinonimos-section">
+        <h3 id="sinonimosId">Sinônimos</h3>
+        <p id="sinonimos">Aqui vai a lista de sinônimos da palavra.</p>
+    </div>
+
+    <div class="content-section" id="frases-section">
+        <h3 id="frasesId">Frases</h3>
+        <p id="frases">Aqui vão algumas frases contendo a palavra.</p>
+    </div>
+
+</body>
+<script src="js/definicao.js">
+</script>
+</html>
+

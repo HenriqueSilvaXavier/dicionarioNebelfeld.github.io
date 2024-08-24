@@ -1,0 +1,111 @@
+body {
+    background-image: url(../img/opcoes-de-background-branco-1.jpg);
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+#header {
+    background-color: rgb(121, 30, 206);
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
+#logo {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: white;
+}
+h1 {
+    display: inline;
+    color: white;
+}
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+input {
+    width: 80vw;
+    border-radius: 40px;
+    border: 2px solid #ccc;
+    padding: 8px 12px;
+    font-size: 16px;
+    margin-top: 120px;
+}
+img {
+    width: 30px;
+    margin-left: -40px;
+    border-radius: 50%;
+    background: white;
+    padding: 5px;
+}
+.highlights {
+    margin: 20px;
+    text-align: center;
+}
+.highlights h2 {
+    color: rgb(121, 30, 206);
+}
+.highlight-item {
+    margin: 10px 0;
+    font-size: 18px;
+}
+#footer {
+    background-color: rgb(121, 30, 206);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    margin-top: auto;
+}
+.nav-links {
+    margin-top: 10px;
+}
+.nav-links a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+.nav-links a:hover {
+    text-decoration: underline;
+}
+select {
+    padding: 5px;
+    margin-top: 120px;
+    margin-right: 3px;
+}
+@media (max-width: 712px) {
+    .search-container {
+        flex-direction: column;
+        align-items: center; /* Centraliza os itens no contêiner */
+    }
+    #search-form {
+        display: flex; /* Define o formulário como flexível */
+        flex-direction: column; /* Alinha os itens em coluna */
+        align-items: center; /* Centraliza os itens no eixo vertical */ /* Faz o formulário ocupar toda a largura disponível */
+    }
+    select#idioma {
+        margin: 0 auto; /* Centraliza o select */
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    input {
+        margin-top: 0;
+        margin-left: 0;
+    }
+    #search-form{
+        align-items: center;
+    }
+}
+@media (max-width: 402px) {
+    .highlights>div.highlight-item{
+        font-size: 14px;
+    }
+}
+span.emDestaque{
+    color:rgb(121, 30, 206);
+}

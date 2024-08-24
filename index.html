@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Página Inicial</title>
+    <link rel="icon" type="image/x-icon" href="img/dicionario.png">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div id="header">
+        <h1>Dicionário <span id="logo">Sturmmann</span></h1>
+    </div>
+    <div class="search-container">
+        <form id="search-form">
+            <select name="idioma" id="idioma">
+                <option class="opcao" value="pt-br" data-pt-br="Português" data-en="Portuguese" data-es="Portugués" data-fr="Portugais" data-de="Portugiesisch">Português</option>
+                <option class="opcao" value="en" data-pt-br="Inglês" data-en="English" data-es="Inglés" data-fr="Anglais" data-de="Englisch">Inglês</option>
+                <option class="opcao" value="es" data-pt-br="Espanhol" data-en="Spanish" data-es="Español" data-fr="Espagnol" data-de="Spanisch">Espanhol</option>
+                <option class="opcao" value="fr" data-pt-br="Francês" data-en="French" data-es="Francés" data-fr="Français" data-de="Französisch">Francês</option>
+                <option class="opcao" value="de" data-pt-br="Alemão" data-en="German" data-es="Alemán" data-fr="Allemand" data-de="Deutsch">Alemão</option>
+            </select>
+            <input type="search" name="pesquisa" id="pesquisa" placeholder="Digite sua palavra">
+        </form>
+    </div>
+    <div class="highlights">
+    <h2 id="highlights-title">Destaques</h2>
+    <div class="highlight-item" data-pt-br="<span class='emDestaque'>Traidor</span>: É alguém que age de forma desleal, quebrando a confiança ou lealdade em relação a outra pessoa, grupo ou causa." 
+        data-en="<span class='emDestaque'>Traitor</span>: Someone who acts disloyally, breaking trust or loyalty with another person, group, or cause."
+        data-es="<span class='emDestaque'>Traidor</span>: Alguien que actúa deslealmente, rompiendo la confianza o lealtad con otra persona, grupo o causa."
+        data-fr="<span class='emDestaque'>Traître</span>: Quelqu'un qui agit de manière déloyale, brisant la confiance ou la loyauté envers une autre personne, groupe ou cause."
+        data-de="<span class='emDestaque'>Verräter</span>: Jemand, der illoyal handelt und Vertrauen oder Loyalität gegenüber einer anderen Person, Gruppe oder Sache bricht.">
+    </div>
+    <div class="highlight-item" data-pt-br="<span class='emDestaque'>Sauna</span>: É um ambiente aquecido usado para relaxamento e terapias, onde as pessoas suam intensamente devido à alta temperatura." 
+        data-en="<span class='emDestaque'>Sauna</span>: A heated environment used for relaxation and therapies, where people sweat intensely due to the high temperature."
+        data-es="<span class='emDestaque'>Sauna</span>: Un ambiente calentado utilizado para la relajación y terapias, donde las personas sudan intensamente debido a la alta temperatura."
+        data-fr="<span class='emDestaque'>Sauna</span>: Un environnement chauffé utilisé pour la relaxation et les thérapies, où les gens transpirent intensément en raison de la haute température."
+        data-de="<span class='emDestaque'>Sauna</span>: Eine beheizte Umgebung, die zur Entspannung und Therapie genutzt wird, in der Menschen aufgrund der hohen Temperatur stark schwitzen.">
+    </div>
+    <div class="highlight-item" data-pt-br="<span class='emDestaque'>Icebergue</span>: É uma grande massa de gelo que se desprende de geleiras e flutua no oceano, com a maior parte submersa e apenas uma pequena porção visível acima da água." 
+        data-en="<span class='emDestaque'>Iceberg</span>: A large mass of ice that breaks off from glaciers and floats in the ocean, with most of it submerged and only a small portion visible above water."
+        data-es="<span class='emDestaque'>Iceberg</span>: Una gran masa de hielo que se desprende de los glaciares y flota en el océano, con la mayor parte sumergida y solo una pequeña porción visible sobre el agua."
+        data-fr="<span class='emDestaque'>Iceberg</span>: Une grande masse de glace qui se détache des glaciers et flotte dans l'océan, avec la majeure partie immergée et seulement une petite portion visible au-dessus de l'eau."
+        data-de="<span class='emDestaque'>Eisberg</span>: Eine große Eismasse, die von Gletschern abbricht und im Ozean treibt, wobei der größte Teil untergetaucht ist und nur ein kleiner Teil über Wasser sichtbar ist.">
+    </div>
+</div>
+
+    <div id="footer">
+        <p>&copy; 2024 Dicionário Sturmmann</p>
+        <div class="nav-links">
+            <a href="#" data-pt-br="Sobre" data-en="About" data-es="Sobre" data-fr="À propos" data-de="Über">Sobre</a>
+            <a href="#" data-pt-br="Ajuda" data-en="Help" data-es="Ayuda" data-fr="Aide" data-de="Hilfe">Ajuda</a>
+            <a href="#" data-pt-br="Contato" data-en="Contact" data-es="Contacto" data-fr="Contact" data-de="Kontakt">Contato</a>
+        </div>
+    </div>
+
+    <script src="js/index.js">
+    </script>
+</body>
+</html>
