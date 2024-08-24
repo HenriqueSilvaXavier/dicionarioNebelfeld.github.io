@@ -109,3 +109,28 @@ select {
 span.emDestaque{
     color:rgb(121, 30, 206);
 }
+#suggestion {
+    display: none; /* Torna o parágrafo invisível inicialmente */
+    color: rgb(121, 30, 206); /* Vermelho para destacar quando visível */
+    font-size: 18px; /* Tamanho da fonte */
+    font-weight: bold; /* Negrito */
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com opacidade */
+    border: 1px solid rgb(121, 30, 206); /* Borda vermelha */
+    border-radius: 8px; /* Cantos arredondados */
+    padding: 10px 15px; /* Espaçamento interno */
+    margin-top: 10px; /* Espaçamento superior para separação do input */
+    max-width: 80vw; /* Largura máxima do parágrafo */
+    text-align: center; /* Alinha o texto ao centro */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+}
+#accept-correction, #reject-correction {
+    margin-left: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: rgb(121, 30, 206); /* Verde para Sim */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display:none;
+}
