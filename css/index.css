@@ -122,6 +122,7 @@ span.emDestaque{
     max-width: 80vw; /* Largura máxima do parágrafo */
     text-align: center; /* Alinha o texto ao centro */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+    margin: 5px auto;
 }
 #accept-correction, #reject-correction {
     margin-left: 10px;
