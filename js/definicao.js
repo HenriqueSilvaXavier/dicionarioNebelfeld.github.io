@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         const h2Element = document.querySelector('h2');
         h2Element.textContent = palavra;
 
-        if (palavraEmPortugues!=undefined) {
+        if (palavraEmPortugues) {
             document.getElementById('palavraId').textContent = palavras[palavraEmPortugues][idioma]['palavra'];
             document.getElementById('definicao').textContent = palavras[palavraEmPortugues][idioma]['definicao'];
             document.getElementById('sinonimos').textContent = palavras[palavraEmPortugues][idioma]['sinonimos'];
@@ -272,4 +272,5 @@ document.addEventListener('DOMContentLoaded', async function() {
             document.querySelector('[value="de"]').innerText = "Deutsch";
         }
     });
+    document.getElementById('idioma').value = idioma;
 });
