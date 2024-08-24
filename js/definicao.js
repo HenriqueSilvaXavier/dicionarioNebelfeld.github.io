@@ -101,20 +101,20 @@ const palavras = {
 };
 const urlParams = new URLSearchParams(window.location.search);
 const palavra = urlParams.get('palavra') || 'Palavra não encontrada';
-let idioma = urlParams.get('lang') || 'pt'; // Padrão para português
+let idioma = urlParams.get('lang') || 'pt-br'; // Padrão para português
 document.documentElement.lang = idioma;
 if (palavra=="sensato" && idioma=="pt-br" || palavra=="sensible" && idioma=="en" || palavra=="sensato" && idioma=="es" || palavra=="sensé" && idioma=="fr" || palavra=="vernünftig" && idioma=="de"){
-    const palavraEmPortugues='sensato';
+    palavraEmPortugues='sensato';
 }
 else if (palavra=="austeridade" && idioma=="pt-br" || palavra=="austerity" && idioma=="en" || palavra=="austeridad" && idioma=="es" || palavra=="austerité" && idioma=="fr"|| palavra=="austerität" && idioma=="de"){
-    const palavraEmPortugues='austeridade';
+    palavraEmPortugues='austeridade';
 }
 else if (palavra=="capacidade" && idioma=="pt-br" || palavra=="capacity" && idioma=="en"|| palavra=="capacidad" && idioma=="es" || palavra=="capacité" && idioma=="fr"|| palavra=="kapazität" && idioma=="de"){
-    const palavraEmPortugues='capacidade';
+    palavraEmPortugues='capacidade';
 }
 async function translatePageContent() {
     const h2Element = document.querySelector('h2');
-    if (palavra) {
+    if (palavra && typeof palavraEmPortugues!=='undefined') {
         const translatedText = palavras[palavraEmPortugues]?.[idioma]?.definicao || "Definição não encontrada.";
         document.getElementById('definicao').innerHTML = translatedText.replace(/\n/g, '<br>') || "Definição não encontrada.";
         document.getElementById('sinonimos').innerHTML = palavras[palavraEmPortugues]?.[idioma]?.sinonimos.replace(/\n/g, '<br>') || "Sinônimos não encontrados.";
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         const h2Element = document.querySelector('h2');
         h2Element.textContent = palavra;
 
-        if (palavraEmPortugues) {
+        if (typeof palavraEmPortugues !== 'undefined'){
             document.getElementById('palavraId').textContent = palavras[palavraEmPortugues][idioma]['palavra'];
             document.getElementById('definicao').textContent = palavras[palavraEmPortugues][idioma]['definicao'];
             document.getElementById('sinonimos').textContent = palavras[palavraEmPortugues][idioma]['sinonimos'];
@@ -192,7 +192,6 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
     traduzir();
     // Atualizar o idioma do select
-    console.log(idioma);
     document.getElementById('idioma').value = idioma;
 
     // Traduzir o conteúdo da página
@@ -272,5 +271,4 @@ document.addEventListener('DOMContentLoaded', async function() {
             document.querySelector('[value="de"]').innerText = "Deutsch";
         }
     });
-    document.getElementById('idioma').value = idioma;
 });
