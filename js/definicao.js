@@ -104,13 +104,13 @@ const palavra = urlParams.get('palavra') || 'Palavra não encontrada';
 let idioma = urlParams.get('lang') || 'pt'; // Padrão para português
 document.documentElement.lang = idioma;
 if (palavra=="sensato" && idioma=="pt-br" || palavra=="sensible" && idioma=="en" || palavra=="sensato" && idioma=="es" || palavra=="sensé" && idioma=="fr" || palavra=="vernünftig" && idioma=="de"){
-    palavraEmPortugues='sensato';
+    const palavraEmPortugues='sensato';
 }
-if (palavra=="austeridade" && idioma=="pt-br" || palavra=="austerity" && idioma=="en" || palavra=="austeridad" && idioma=="es" || palavra=="austerité" && idioma=="fr"|| palavra=="austerität" && idioma=="de"){
-    palavraEmPortugues='austeridade';
+else if (palavra=="austeridade" && idioma=="pt-br" || palavra=="austerity" && idioma=="en" || palavra=="austeridad" && idioma=="es" || palavra=="austerité" && idioma=="fr"|| palavra=="austerität" && idioma=="de"){
+    const palavraEmPortugues='austeridade';
 }
-if (palavra=="capacidade" && idioma=="pt-br" || palavra=="capacity" && idioma=="en"|| palavra=="capacidad" && idioma=="es" || palavra=="capacité" && idioma=="fr"|| palavra=="kapazität" && idioma=="de"){
-    palavraEmPortugues='capacidade';
+else if (palavra=="capacidade" && idioma=="pt-br" || palavra=="capacity" && idioma=="en"|| palavra=="capacidad" && idioma=="es" || palavra=="capacité" && idioma=="fr"|| palavra=="kapazität" && idioma=="de"){
+    const palavraEmPortugues='capacidade';
 }
 async function translatePageContent() {
     const h2Element = document.querySelector('h2');
