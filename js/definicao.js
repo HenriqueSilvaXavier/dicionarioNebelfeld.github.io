@@ -192,6 +192,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
     traduzir();
     // Atualizar o idioma do select
+    console.log(idioma);
     document.getElementById('idioma').value = idioma;
 
     // Traduzir o conteúdo da página
