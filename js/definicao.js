@@ -100,7 +100,7 @@ const palavras = {
     },
 };
 const urlParams = new URLSearchParams(window.location.search);
-const palavra = urlParams.get('palavra') || 'Palavra não encontrada';
+const palavra = urlParams.get('palavra').toLowerCase() || 'Palavra não encontrada';
 let idioma = urlParams.get('lang') || 'pt-br'; // Padrão para português
 document.documentElement.lang = idioma;
 if (palavra=="sensato" && idioma=="pt-br" || palavra=="sensible" && idioma=="en" || palavra=="sensato" && idioma=="es" || palavra=="sensé" && idioma=="fr" || palavra=="vernünftig" && idioma=="de"){
