@@ -77,7 +77,7 @@ const palavras = {
             "palavra": "capacity",
             "definicao": "Capacity is a noun that indicates the ability or aptitude to perform something. It can also refer to the volume or amount that something can hold.",
             "sinonimos": "Ability, aptitude, competence, potential, talent.",
-            "frases": "-The ability to solve complex problems is essential for an engineer. \n-The auditorium has a capacity of 500 people."
+            "frases": "-The capacity to solve complex problems is essential for an engineer. \n-The auditorium has a capacity of 500 people."
         },
         "fr": {
             "palavra": "capacité",
