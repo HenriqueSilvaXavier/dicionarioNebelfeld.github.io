@@ -63,7 +63,7 @@ function translateText(text, idioma) {
             'Contato': 'Kontakt',
             'Português': 'Portugiesisch',
             'Inglês': 'Englisch',
-            'Espanol': 'Spanisch',
+            'Espanhol': 'Spanisch',
             'Francês': 'Französisch',
             'Alemão': 'Deutsch'
         }
@@ -101,7 +101,7 @@ function updatePageContent() {
     // Traduzir as opções do select na primeira vez
     if (!translationDone) {
         document.querySelectorAll('#idioma option').forEach(function(option) {
-            const translatedText = translateText(option.getAttribute('data-' + idioma), idioma);
+            const translatedText = translateText(option.textContent, idioma);
             if (translatedText !== option.textContent) {
                 option.textContent = translatedText;
             }
@@ -139,8 +139,8 @@ const correcoes = {
     },
     'de': {
         'sensato': 'vernünftig',
-        'austeridade': 'Strenge',
-        'capacidade': 'Kapazität'
+        'austeridade': 'strenge',
+        'capacidade': 'kapazität'
     }
 };
 
@@ -148,7 +148,20 @@ function getTranslation(word, language) {
     return correcoes[language][word] || word;
 }
 
-document.getElementById('search-form').addEventListener('submit', function(event) {
+async function checkSpelling(text, language) {
+    const response = await fetch('https://api.languagetool.org/v2/check', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `text=${encodeURIComponent(text)}&language=${language}`
+    });
+    const result = await response.json();
+    return result.matches.map(match => match.replacements.map(r => r.value)).flat();
+}
+
+const lista = ['sensato', 'austeridade', 'capacidade', 'sensible', 'austerity', 'capacity', 'austeridad', 'capacidad', 'sensé', 'austérité', 
+'capacité', 'vernünftig', 'strenge', 'kapazität'];
+
+document.getElementById('search-form').addEventListener('submit', async function(event) {
     event.preventDefault();
     const pesquisa = document.getElementById('pesquisa').value.trim().toLowerCase();
     const idioma = document.getElementById('idioma').value;
@@ -159,45 +172,46 @@ document.getElementById('search-form').addEventListener('submit', function(event
         window.location.href = 'definicao.html?palavra=' + encodeURIComponent(pesquisa) + '&lang=' + idioma;
     } else {
         // Verifica se existe uma sugestão de correção
-        for (const palavra in correcoes[idioma]) {
-            if (pesquisa.startsWith(palavra.slice(0, 3))) {
-                sugestao = correcoes[idioma][palavra];
-                break;
-            }
-        }
-        // Se houver sugestão, exibe-a junto com as opções de "Sim" e "Não"
-        if (sugestao) {
-            const suggestionElement = document.getElementById('suggestion');
-            const suggestionText = document.getElementById('suggestion-text');
-            const acceptButton = document.getElementById('accept-correction');
-            const rejectButton = document.getElementById('reject-correction');
-            if (idioma === "pt-br") {
-                suggestionText.textContent = 'Você quis dizer "' + sugestao + '"?';
-            } else if (idioma === "en") {
-                suggestionText.textContent = 'Did you mean "' + sugestao + '"?';
-            } else if (idioma === "es") {
-                suggestionText.textContent = '¿Quisiste decir "' + sugestao + '"?';
-            } else if (idioma === "fr") {
-                suggestionText.textContent = 'Vouliez-vous dire "' + sugestao + '"?';
-            } else if (idioma === "de") {
-                suggestionText.textContent = 'Meinten Sie "' + sugestao + '"?';
-            }
+        const suggestions = await checkSpelling(pesquisa, idioma);
+        if (suggestions.length > 0) {
+            sugestao = suggestions.find(suggestion => lista.includes(suggestion)) || '';
 
-            suggestionElement.style.display = 'block'; // Torna o parágrafo visível
-            acceptButton.style.display = 'inline-block'; // Torna o botão "Sim" visível
-            rejectButton.style.display = 'inline-block'; // Torna o botão "Não" visível
+            // Se houver sugestão, exibe-a junto com as opções de "Sim" e "Não"
+            if (sugestao) {
+                const suggestionElement = document.getElementById('suggestion');
+                const suggestionText = document.getElementById('suggestion-text');
+                const acceptButton = document.getElementById('accept-correction');
+                const rejectButton = document.getElementById('reject-correction');
+                
+                if (idioma === "pt-br") {
+                    suggestionText.textContent = 'Você quis dizer "' + sugestao + '"?';
+                } else if (idioma === "en") {
+                    suggestionText.textContent = 'Did you mean "' + sugestao + '"?';
+                } else if (idioma === "es") {
+                    suggestionText.textContent = '¿Quisiste decir "' + sugestao + '"?';
+                } else if (idioma === "fr") {
+                    suggestionText.textContent = 'Vouliez-vous dire "' + sugestao + '"?';
+                } else if (idioma === "de") {
+                    suggestionText.textContent = 'Meinten Sie "' + sugestao + '"?';
+                }
 
-            // Adiciona funcionalidade ao botão "Sim"
-            acceptButton.onclick = function() {
-                window.location.href = 'definicao.html?palavra=' + encodeURIComponent(sugestao) + '&lang=' + idioma;
-            };
+                suggestionElement.style.display = 'block'; // Torna o parágrafo visível
+                acceptButton.style.display = 'inline-block'; // Torna o botão "Sim" visível
+                rejectButton.style.display = 'inline-block'; // Torna o botão "Não" visível
 
-            // Adiciona funcionalidade ao botão "Não"
-            rejectButton.onclick = function() {
+                // Adiciona funcionalidade ao botão "Sim"
+                acceptButton.onclick = function() {
+                    window.location.href = 'definicao.html?palavra=' + encodeURIComponent(sugestao) + '&lang=' + idioma;
+                };
+
+                // Adiciona funcionalidade ao botão "Não"
+                rejectButton.onclick = function() {
+                    window.location.href = 'definicao.html?palavra=' + encodeURIComponent(pesquisa) + '&lang=' + idioma;
+                };
+            } else {
                 window.location.href = 'definicao.html?palavra=' + encodeURIComponent(pesquisa) + '&lang=' + idioma;
-            };
-        }
-        else {
+            }
+        } else {
             window.location.href = 'definicao.html?palavra=' + encodeURIComponent(pesquisa) + '&lang=' + idioma;
         }
     }
