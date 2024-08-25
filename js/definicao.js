@@ -273,3 +273,8 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
     });
 });
+function ativarPronuncia(){
+    const utterance = new SpeechSynthesisUtterance(palavra);
+    utterance.lang = idioma; // Define o idioma da pronúncia
+    window.speechSynthesis.speak(utterance);
+}
