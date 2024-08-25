@@ -1,3 +1,7 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../MontserratAlternates-Black.ttf') format('truetype');
+}
 body {
     background-image: url(../img/opcoes-de-background-branco-1.jpg);
     background-size: cover;
@@ -16,7 +20,7 @@ body {
     width: 100%;
 }
 #logo {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Montserrat';
     color: white;
 }
 h1 {
