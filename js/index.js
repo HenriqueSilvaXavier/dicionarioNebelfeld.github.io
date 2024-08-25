@@ -197,5 +197,8 @@ document.getElementById('search-form').addEventListener('submit', function(event
                 window.location.href = 'definicao.html?palavra=' + encodeURIComponent(pesquisa) + '&lang=' + idioma;
             };
         }
+        else {
+            window.location.href = 'definicao.html?palavra=' + encodeURIComponent(pesquisa) + '&lang=' + idioma;
+        }
     }
 });
