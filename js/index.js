@@ -171,28 +171,37 @@ document.getElementById('search-form').addEventListener('submit', async function
     const idioma = document.getElementById('idioma').value;
     let sugestao = '';
     let suggestions = [];
-    const idiomaCorreto = (idioma === 'en') ? 'en-US' : idioma;
-    console.log(correcoes[idioma][pesquisa]);
-    if (correcoes[idioma][pesquisa]) {
+    const idiomaCorreto = (idioma === 'en') ? 'en-US' : (idioma === 'de') ? 'de-DE': idioma;
+    if (pesquisa === "sensato" && idioma === "pt-br" || 
+        pesquisa === "sensible" && idioma === "en" || 
+        pesquisa === "sensato" && idioma === "es" || 
+        pesquisa === "sensé" && idioma === "fr" || 
+        pesquisa === "vernünftig" && idioma === "de") {
+        palavraEmPortugues = 'sensato';
+    } else if (pesquisa === "austeridade" && idioma === "pt-br" || 
+               pesquisa === "austerity" && idioma === "en" || 
+               pesquisa === "austeridad" && idioma === "es" || 
+               pesquisa === "austerité" && idioma === "fr" || 
+               pesquisa === "austerität" && idioma === "de") {
+        palavraEmPortugues = 'austeridade';
+    } else if (pesquisa === "capacidade" && idioma === "pt-br" || 
+               pesquisa === "capacity" && idioma === "en" || 
+               pesquisa === "capacidad" && idioma === "es" || 
+               pesquisa === "capacité" && idioma === "fr" || 
+               pesquisa === "kapazität" && idioma === "de") {
+        palavraEmPortugues = 'capacidade';
+    }
+    
+    if (typeof palavraEmPortugues!=='undefined' && correcoes[idioma][palavraEmPortugues]) {
         // Se a palavra digitada estiver na lista de correções, redireciona diretamente
         window.location.href = 'definicao.html?palavra=' + encodeURIComponent(pesquisa) + '&lang=' + idioma;
     } else {
         // Verifica se existe uma sugestão de correção
-        if (idioma !== 'de') {
-            suggestions = await checkSpelling(pesquisa, idiomaCorreto);
-            sugestao = suggestions.find(suggestion => lista.includes(suggestion)) || '';
-        } else {
-            const palavrasEmAlemao = correcoes['de'];
-            console.log(palavrasEmAlemao);
-            for (let chave in palavrasEmAlemao) {
-                if (palavrasEmAlemao.hasOwnProperty(chave)) {
-                    if (pesquisa.startsWith(palavrasEmAlemao[chave].slice(0, 3))) {
-                        sugestao = palavrasEmAlemao[chave];
-                        break;
-                    }
-                }
-            }
-        }
+        suggestions = await checkSpelling(pesquisa, idiomaCorreto);
+        let suggestionsLowerCase = suggestions.map(function(item) {
+            return item.toLowerCase();
+        });
+        sugestao = suggestionsLowerCase.find(suggestion => lista.includes(suggestion)) || '';
         if (sugestao) {
             // Se houver sugestão, exibe-a junto com as opções de "Sim" e "Não"
             const suggestionElement = document.getElementById('suggestion');
