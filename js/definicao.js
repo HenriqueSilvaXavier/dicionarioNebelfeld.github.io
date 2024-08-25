@@ -63,7 +63,7 @@ const palavras = {
             "palavra": "austerität",
             "definicao": "Austerität ist ein Substantiv, das sich auf die Eigenschaft bezieht, streng oder rigoros zu sein, insbesondere in Bezug auf Verhalten, Lebensstil oder Wirtschaftspolitik. Es kann auch Einfachheit und Mangel an Luxus anzeigen.",
             "sinonimos": "Strenge, Rigor, Nüchternheit, Einfachheit, Sparsamkeit.",
-            "frases": "-Die Austerität der Dekoration spiegelte die Ernsthaftigkeit des Anlasses wider. \n-Die Regierung führte Sparmaßnahmen ein, um das öffentliche Defizit zu kontrollieren."
+            "frases": "-Die Austerität der Dekoration spiegelte die Ernsthaftigkeit des Anlasses wider. \n-Die Regierung führte Austeritätsmaßnahmen ein, um das öffentliche Defizit zu kontrollieren."
         }
     },
     "capacidade": {
@@ -100,8 +100,9 @@ const palavras = {
     },
 };
 const urlParams = new URLSearchParams(window.location.search);
-const palavra = urlParams.get('palavra').toLowerCase() || 'Palavra não encontrada';
+const palavra = urlParams.get('palavra') || 'Palavra não encontrada';
 let idioma = urlParams.get('lang') || 'pt-br'; // Padrão para português
+console.log(palavra, idioma);
 document.documentElement.lang = idioma;
 if (palavra=="sensato" && idioma=="pt-br" || palavra=="sensible" && idioma=="en" || palavra=="sensato" && idioma=="es" || palavra=="sensé" && idioma=="fr" || palavra=="vernünftig" && idioma=="de"){
     palavraEmPortugues='sensato';
