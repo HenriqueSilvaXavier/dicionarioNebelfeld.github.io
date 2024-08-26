@@ -290,7 +290,9 @@ else{
 }
 function ativarPronuncia(){
     const utterance = new SpeechSynthesisUtterance(palavra);
+    console.log(palavra);
     utterance.lang = idioma; // Define o idioma da pronúncia
+    console.log(idioma);
     window.speechSynthesis.speak(utterance);
 }
 function ativarPronunciaUS(){
