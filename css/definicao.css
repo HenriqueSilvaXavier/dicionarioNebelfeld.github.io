@@ -62,7 +62,7 @@ div#header{
     cursor: pointer;
 }
 #sound-container {
-    display: flex;
+    display: inline-flex;
     align-items: center;
 }
 #sound-container-US-UK {
