@@ -225,6 +225,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         else{
             document.getElementById("auto-falante").style.display = "flex";
             document.getElementById("sound-container-US-UK").style.display = "none";
+            console.log(idioma);
         }
         translatePageContent();
         traduzir();
