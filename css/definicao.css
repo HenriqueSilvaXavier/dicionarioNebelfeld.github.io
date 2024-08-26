@@ -59,17 +59,23 @@ select {
 div#header{
     cursor: pointer;
 }
-.sound-container {
+#sound-container {
     display: flex;
     align-items: center;
 }
-
-.sound-container img {
+#sound-container-US-UK {
+    display: flex;
+    align-items: center;
+}
+img {
     margin-left: 10px;
     width: 20px;
 }
 
-.sound-container h2 {
+#sound-container h2 {
     margin: 0; /* Remove a margem padrão do h2 */
     color: rgb(121, 30, 206); /* Ajuste a cor conforme necessário */
+}
+#uk{
+    margin-left: 9px;
 }
