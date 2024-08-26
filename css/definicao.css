@@ -73,6 +73,9 @@ img {
     margin-left: 5px;
     width: 20px;
 }
+img#auto-falante{
+    margin-top: 0px;
+}
 
 #sound-container h2 {
     color: rgb(121, 30, 206); /* Ajuste a cor conforme necessário */
