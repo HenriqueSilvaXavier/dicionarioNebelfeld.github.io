@@ -102,7 +102,6 @@ const palavras = {
 const urlParams = new URLSearchParams(window.location.search);
 const palavra = urlParams.get('palavra') || 'Palavra não encontrada';
 let idioma = urlParams.get('lang') || 'pt-br'; // Padrão para português
-console.log(palavra, idioma);
 document.documentElement.lang = idioma;
 if (palavra=="sensato" && idioma=="pt-br" || palavra=="sensible" && idioma=="en" || palavra=="sensato" && idioma=="es" || palavra=="sensé" && idioma=="fr" || palavra=="vernünftig" && idioma=="de"){
     palavraEmPortugues='sensato';
@@ -218,7 +217,6 @@ document.addEventListener('DOMContentLoaded', async function() {
         await translatePageContent(novoIdioma); // Atualizar tradução da página
         window.history.replaceState(null, '', `?palavra=${encodeURIComponent(palavra)}&lang=${novoIdioma}`);
         idioma=novoIdioma;
-        console.log(idioma);
         if(idioma=='en'){
             document.getElementById("auto-falante").style.display = "none";
             document.getElementById("sound-container-US-UK").style.display = "flex";
@@ -226,7 +224,6 @@ document.addEventListener('DOMContentLoaded', async function() {
         else{
             document.getElementById("auto-falante").style.display = "flex";
             document.getElementById("sound-container-US-UK").style.display = "none";
-            console.log(idioma);
         }
         translatePageContent();
         traduzir();
