@@ -218,6 +218,14 @@ document.addEventListener('DOMContentLoaded', async function() {
         await translatePageContent(novoIdioma); // Atualizar tradução da página
         window.history.replaceState(null, '', `?palavra=${encodeURIComponent(palavra)}&lang=${novoIdioma}`);
         idioma=novoIdioma;
+        if(idioma=='en'){
+            document.getElementById("auto-falante").style.display = "none";
+            document.getElementById("sound-container-US-UK").style.display = "flex";
+        }
+        else{
+            document.getElementById("auto-falante").style.display = "flex";
+            document.getElementById("sound-container-US-UK").style.display = "none";
+        }
         translatePageContent();
         traduzir();
         if (novoIdioma === "pt-br") {
