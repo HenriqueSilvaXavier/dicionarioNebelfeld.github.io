@@ -289,19 +289,19 @@ else{
     document.getElementById("sound-container-US-UK").style.display = "none";
 }
 function ativarPronuncia(){
-    let utterance = new SpeechSynthesisUtterance(palavra);
+    let utterance = new SpeechSynthesisUtterance(document.querySelector('h2').textContent);
     console.log("palavra:", palavra);
     utterance.lang = idioma; // Define o idioma da pronúncia
     console.log("idioma:", idioma);
     window.speechSynthesis.speak(utterance);
 }
 function ativarPronunciaUS(){
-    let utterance = new SpeechSynthesisUtterance(palavra);
+    let utterance = new SpeechSynthesisUtterance(document.querySelector('h2').textContent);
     utterance.lang = 'en-US'; // Define o idioma da pronúncia
     window.speechSynthesis.speak(utterance);
 }
 function ativarPronunciaUK(){
-    let utterance = new SpeechSynthesisUtterance(palavra);
+    let utterance = new SpeechSynthesisUtterance(document.querySelector('h2').textContent);
     utterance.lang = 'en-GB'; // Define o idioma da pronúncia
     window.speechSynthesis.speak(utterance);
 }
