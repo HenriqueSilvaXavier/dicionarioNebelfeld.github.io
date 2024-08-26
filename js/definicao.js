@@ -280,12 +280,12 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
     });
 });
-if(idioma='en'){
+if(idioma=='en'){
     document.getElementById("auto-falante").style.display = "none";
     document.getElementById("sound-container-US-UK").style.display = "flex";
 }
 else{
-    ocument.getElementById("auto-falante").style.display = "flex";
+    document.getElementById("auto-falante").style.display = "flex";
     document.getElementById("sound-container-US-UK").style.display = "none";
 }
 function ativarPronuncia(){
