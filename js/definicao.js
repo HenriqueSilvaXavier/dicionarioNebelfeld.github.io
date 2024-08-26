@@ -218,6 +218,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         await translatePageContent(novoIdioma); // Atualizar tradução da página
         window.history.replaceState(null, '', `?palavra=${encodeURIComponent(palavra)}&lang=${novoIdioma}`);
         idioma=novoIdioma;
+        console.log(idioma);
         if(idioma=='en'){
             document.getElementById("auto-falante").style.display = "none";
             document.getElementById("sound-container-US-UK").style.display = "flex";
