@@ -273,8 +273,26 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
     });
 });
+if(idioma='en'){
+    document.getElementById("auto-falante").style.display = "none";
+    document.getElementById("sound-container-US-UK").style.display = "flex";
+}
+else{
+    ocument.getElementById("auto-falante").style.display = "flex";
+    document.getElementById("sound-container-US-UK").style.display = "none";
+}
 function ativarPronuncia(){
     const utterance = new SpeechSynthesisUtterance(palavra);
     utterance.lang = idioma; // Define o idioma da pronúncia
+    window.speechSynthesis.speak(utterance);
+}
+function ativarPronunciaUS(){
+    const utterance = new SpeechSynthesisUtterance(palavra);
+    utterance.lang = 'en-US'; // Define o idioma da pronúncia
+    window.speechSynthesis.speak(utterance);
+}
+function ativarPronunciaUK(){
+    const utterance = new SpeechSynthesisUtterance(palavra);
+    utterance.lang = 'en-GB'; // Define o idioma da pronúncia
     window.speechSynthesis.speak(utterance);
 }
